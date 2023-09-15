@@ -22,8 +22,8 @@ public class juguetesController {
         return "Juguete actualizado satisfactoriamente";
     }
 
-    @GetMapping("/delateJuguetes")
-    public String delateJuguetes(){
+    @GetMapping("/deleteJuguetes")
+    public String deleteJuguetes(){
         return "Juguete eliminada satisfactoriamente";
     }
 

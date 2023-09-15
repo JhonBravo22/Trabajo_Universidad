@@ -27,6 +27,7 @@ public class SecurityConfiguration {
                         .requestMatchers("/ropa").authenticated()
                         .requestMatchers("/aseo").authenticated()
                         .requestMatchers("/index").authenticated()
+                        .requestMatchers("/api/createCamas","/api/readCamas","/api/updateCamas", "/api/deleteCamas").authenticated()
                         .anyRequest().permitAll()
                 )
                 .httpBasic(withDefaults())

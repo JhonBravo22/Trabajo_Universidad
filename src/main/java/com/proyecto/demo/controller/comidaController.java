@@ -22,8 +22,8 @@ public class comidaController {
         return "Comida actualizada satisfactoriamente";
     }
 
-    @GetMapping("/delateComida")
-    public String delateComida(){
+    @GetMapping("/deleteComida")
+    public String deleteComida(){
         return "Comida eliminada satisfactoriamente";
     }
 

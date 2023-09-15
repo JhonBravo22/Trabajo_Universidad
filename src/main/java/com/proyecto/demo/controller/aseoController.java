@@ -22,8 +22,8 @@ public class aseoController {
         return "Aseo actualizado satisfactoriamente";
     }
 
-    @GetMapping("/delateAseo")
-    public String delateAseo(){
+    @GetMapping("/deleteAseo")
+    public String deleteAseo(){
         return "Aseo eliminado satisfactoriamente";
     }
 

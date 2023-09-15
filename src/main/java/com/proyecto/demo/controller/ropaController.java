@@ -22,8 +22,8 @@ public class ropaController {
         return "Ropa actualizada satisfactoriamente";
     }
 
-    @GetMapping("/delateRopa")
-    public String delateRopa(){
+    @GetMapping("/deleteRopa")
+    public String deleteRopa(){
         return "Ropa eliminada satisfactoriamente";
     }
 
