@@ -27,7 +27,7 @@ public class SecurityConfiguration {
                         .requestMatchers("/ropa").authenticated()
                         .requestMatchers("/aseo").authenticated()
                         .requestMatchers("/index").authenticated()
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
                 )
                 .httpBasic(withDefaults())
                 .formLogin(withDefaults());
