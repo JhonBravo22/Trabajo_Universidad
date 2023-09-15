@@ -6,25 +6,25 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
-public class restcontroller {
+public class camasController {
 
-    @GetMapping("/createCamas")
-    public String createCamas (){
-        return "Cama adicionada satisfactoriamente";
+    @GetMapping("/createCama")
+    public String createCama (){
+        return "Cama creada satisfactoriamente";
     }
 
     @GetMapping("/readCama")
     public String readCama(){
-        return "Cama eliminada";
+        return "Cama encontrada satisfactoriamente";
     }
-        @GetMapping("/updateCamas")
-    public String updateCamas (){
-        return "Cama adicionada satisfactoriamente";
+        @GetMapping("/updateCama")
+    public String updateCama (){
+        return "Cama actualizada satisfactoriamente";
     }
 
     @GetMapping("/delateCama")
     public String delateCama(){
-        return "Cama eliminada";
+        return "Cama eliminada satisfactoriamente";
     }
 
 }
