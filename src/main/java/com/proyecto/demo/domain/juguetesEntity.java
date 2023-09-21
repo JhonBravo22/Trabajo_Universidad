@@ -1,9 +1,9 @@
 package com.proyecto.demo.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class juguetesEntity {
@@ -14,7 +14,7 @@ public class juguetesEntity {
     private String nombre;
     private String marca;
     private String color;
-    private String precio;
+    private Integer precio;
 
     public juguetesEntity() {
     }
@@ -43,13 +43,13 @@ public class juguetesEntity {
     public void setColor(String color) {
         this.color = color;
     }
-    public String getPrecio() {
+    public Integer getPrecio() {
         return precio;
     }
-    public void setPrecio(String precio) {
+    public void setPrecio(Integer precio) {
         this.precio = precio;
     }
-    public juguetesEntity(String nombre, String marca, String color, String precio) {
+    public juguetesEntity(String nombre, String marca, String color, Integer precio) {
         this.nombre = nombre;
         this.marca = marca;
         this.color = color;

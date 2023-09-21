@@ -1,12 +1,11 @@
 package com.proyecto.demo.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
-
 public class aseoEntity {
 
     @Id
@@ -15,7 +14,7 @@ public class aseoEntity {
     private String nombre;
     private String marca;
     private String especie;
-    private String precio;
+    private Integer precio;
 
     public aseoEntity() {
     }
@@ -44,13 +43,13 @@ public class aseoEntity {
     public void setEspecie(String especie) {
         this.especie = especie;
     }
-    public String getPrecio() {
+    public Integer getPrecio() {
         return precio;
     }
-    public void setPrecio(String precio) {
+    public void setPrecio(Integer precio) {
         this.precio = precio;
     }
-    public aseoEntity(String nombre, String marca, String especie, String precio) {
+    public aseoEntity(String nombre, String marca, String especie, Integer precio) {
         this.nombre = nombre;
         this.marca = marca;
         this.especie = especie;
