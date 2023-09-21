@@ -22,14 +22,39 @@ public class ropaController {
         return "Ropa creada satisfactoriamente";
     }
 
+    @GetMapping("/readRopa/{id}")
+        public String readRopa(@PathVariable("id") String id){
+        String regexforID = "[A-Z 0-9 a-z]{0,15}";
+            if (id == null || !id.matches(regexforID))
+            throw new IllegalArgumentException();
+         return "Ropa encontrada satisfactoriamente "+id;
+        }
+
     @GetMapping("/readRopa")
     public String readRopa(){
         return "Ropa encontrada satisfactoriamente";
     }
+
+    @GetMapping("/updateRopa/{id}")
+        public String updateRopa(@PathVariable("id") String id){
+        String regexforID = "[A-Z 0-9 a-z]{0,15}";
+            if (id == null || !id.matches(regexforID))
+            throw new IllegalArgumentException();
+         return "Ropa actualizada satisfactoriamente "+id;
+        }
+
         @GetMapping("/updateRopa")
     public String updateRopa (){
         return "Ropa actualizada satisfactoriamente";
     }
+
+    @GetMapping("/deleteRopa/{id}")
+        public String deleteRopa(@PathVariable("id") String id){
+        String regexforID = "[A-Z 0-9 a-z]{0,15}";
+            if (id == null || !id.matches(regexforID))
+            throw new IllegalArgumentException();
+         return "Ropa elimanada satisfactoriamente "+id;
+        }
 
     @GetMapping("/deleteRopa")
     public String deleteRopa(){

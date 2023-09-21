@@ -22,14 +22,39 @@ public class aseoController {
         return "aseo creado satisfactoriamente";
     }
 
+    @GetMapping("/readAseo/{id}")
+        public String readAseo(@PathVariable("id") String id){
+        String regexforID = "[A-Z 0-9 a-z]{0,15}";
+            if (id == null || !id.matches(regexforID))
+            throw new IllegalArgumentException();
+         return "Aseo encontrado satisfactoriamente "+id;
+        }
+
     @GetMapping("/readAseo")
     public String readAseo(){
         return "aseo encontrado satisfactoriamente";
     }
+
+    @GetMapping("/updateAseo/{id}")
+        public String updateAseo(@PathVariable("id") String id){
+        String regexforID = "[A-Z 0-9 a-z]{0,15}";
+            if (id == null || !id.matches(regexforID))
+            throw new IllegalArgumentException();
+         return "Aseo actualizado satisfactoriamente "+id;
+        }
+
         @GetMapping("/updateAseo")
     public String updateAseo (){
         return "Aseo actualizado satisfactoriamente";
     }
+
+    @GetMapping("/deleteAseo/{id}")
+        public String deleteAseo(@PathVariable("id") String id){
+        String regexforID = "[A-Z 0-9 a-z]{0,15}";
+            if (id == null || !id.matches(regexforID))
+            throw new IllegalArgumentException();
+         return "Aseo eliminado satisfactoriamente "+id;
+        }
 
     @GetMapping("/deleteAseo")
     public String deleteAseo(){

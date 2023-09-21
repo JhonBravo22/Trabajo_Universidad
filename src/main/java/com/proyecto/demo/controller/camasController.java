@@ -24,8 +24,11 @@ public class camasController {
 
     @GetMapping("/readCamas/{id}")
         public String readCamas(@PathVariable("id") String id){
+        String regexforID = "[A-Z 0-9 a-z]{0,15}";
+            if (id == null || !id.matches(regexforID))
+            throw new IllegalArgumentException();
          return "Cama encontrada satisfactoriamente "+id;
-        }
+    }
 
     @GetMapping("/readCamas")
     public String readCamas(){
@@ -34,8 +37,11 @@ public class camasController {
 
     @GetMapping("/updateCamas/{id}")
         public String updateCamas(@PathVariable("id") String id){
+        String regexforID = "[A-Z 0-9 a-z]{0,15}";
+            if (id == null || !id.matches(regexforID))
+            throw new IllegalArgumentException();
          return "Cama actualizada satisfactoriamente "+id;
-        }
+    }
         
         @GetMapping("/updateCamas")
     public String updateCamas (){
@@ -44,8 +50,11 @@ public class camasController {
 
     @GetMapping("/deleteCamas/{id}")
         public String deleteCamas(@PathVariable("id") String id){
+        String regexforID = "[A-Z 0-9 a-z]{0,15}";
+            if (id == null || !id.matches(regexforID))
+            throw new IllegalArgumentException();
          return "Cama eliminada satisfactoriamente "+id;
-        }
+    }
 
     @GetMapping("/deleteCamas")
     public String deleteCamas(){

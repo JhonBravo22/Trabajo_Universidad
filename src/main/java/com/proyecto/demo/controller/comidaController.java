@@ -22,14 +22,39 @@ public class comidaController {
         return "Comida creada satisfactoriamente";
     }
 
+    @GetMapping("/readComida/{id}")
+        public String readComida(@PathVariable("id") String id){
+        String regexforID = "[A-Z 0-9 a-z]{0,15}";
+            if (id == null || !id.matches(regexforID))
+            throw new IllegalArgumentException();
+         return "Comida encontrada satisfactoriamente "+id;
+        }
+
     @GetMapping("/readComida")
     public String readComida(){
         return "Comida encontrada satisfactoriamente";
     }
+
+    @GetMapping("/updateComida/{id}")
+        public String updateComida(@PathVariable("id") String id){
+        String regexforID = "[A-Z 0-9 a-z]{0,15}";
+            if (id == null || !id.matches(regexforID))
+            throw new IllegalArgumentException();
+         return "Comida actualizada satisfactoriamente "+id;
+        }
+
         @GetMapping("/updateComida")
     public String updateComida (){
         return "Comida actualizada satisfactoriamente";
     }
+
+    @GetMapping("/deleteComida/{id}")
+        public String deleteComida(@PathVariable("id") String id){
+        String regexforID = "[A-Z 0-9 a-z]{0,15}";
+            if (id == null || !id.matches(regexforID))
+            throw new IllegalArgumentException();
+         return "Comida eliminada satisfactoriamente "+id;
+        }
 
     @GetMapping("/deleteComida")
     public String deleteComida(){
