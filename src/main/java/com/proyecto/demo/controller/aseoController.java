@@ -1,13 +1,27 @@
 package com.proyecto.demo.controller;
 
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.proyecto.demo.domain.aseoEntity;
+import com.proyecto.demo.repositories.aseoRepositories;
+
+
 @RestController
 @RequestMapping("/api")
 public class aseoController {
+
+    private final aseoRepositories aseoRepo;
+
+    @Autowired
+    public aseoController(aseoRepositories aseoRepo) {
+        this.aseoRepo = aseoRepo;
+    }
 
     @GetMapping("/createAseo/{id}")
         public String createAseo(@PathVariable("id") String id){
@@ -17,17 +31,18 @@ public class aseoController {
          return "Aseo creado satisfactoriamente "+id;
         }
 
+    
     @GetMapping("/createAseo")
     public String createAseo (){
         return "aseo creado satisfactoriamente";
     }
 
     @GetMapping("/readAseo/{id}")
-        public String readAseo(@PathVariable("id") String id){
+        public Optional<aseoEntity> readAseo(@PathVariable("id") String id){
         String regexforID = "[A-Z 0-9 a-z]{0,15}";
             if (id == null || !id.matches(regexforID))
             throw new IllegalArgumentException();
-         return "Aseo encontrado satisfactoriamente "+id;
+         return aseoRepo.findById(Long.valueOf(id));
         }
 
     @GetMapping("/readAseo")

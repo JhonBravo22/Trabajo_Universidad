@@ -1,13 +1,26 @@
 package com.proyecto.demo.controller;
 
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.proyecto.demo.domain.camasEntity;
+import com.proyecto.demo.repositories.camasRepositories;
+
 @RestController
 @RequestMapping("/api")
 public class camasController {
+
+    private final camasRepositories camasRepo;
+    
+    @Autowired
+    public camasController(camasRepositories camasRepo) {
+        this.camasRepo = camasRepo;
+    }
 
     @GetMapping("/createCamas/{id}")
         public String createCamas(@PathVariable("id") String id){
@@ -23,11 +36,11 @@ public class camasController {
     }
 
     @GetMapping("/readCamas/{id}")
-        public String readCamas(@PathVariable("id") String id){
+        public Optional<camasEntity> readCamas(@PathVariable("id") String id){
         String regexforID = "[A-Z 0-9 a-z]{0,15}";
             if (id == null || !id.matches(regexforID))
             throw new IllegalArgumentException();
-         return "Cama encontrada satisfactoriamente "+id;
+         return camasRepo.findById(Long.valueOf(id));
     }
 
     @GetMapping("/readCamas")
