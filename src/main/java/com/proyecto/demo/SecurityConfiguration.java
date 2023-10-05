@@ -27,12 +27,13 @@ public class SecurityConfiguration {
                         .requestMatchers("/ropa").authenticated()
                         .requestMatchers("/aseo").authenticated()
                         .requestMatchers("/index").authenticated()
-                        //.requestMatchers("/api/createCamas","/api/updateCamas", "/api/deleteCamas").authenticated()
-                        //.requestMatchers("/api/createAseo","/api/updateAseo", "/api/deleteAseo").authenticated()
-                        //.requestMatchers("/api/createComida","/api/updateComida", "/api/deleteComida").authenticated()
-                        //.requestMatchers("/api/createJuguetes","/api/updateJuguetes", "/api/deleteJuguetes").authenticated()
-                        //.requestMatchers("/api/createRopa","/api/updateRopa", "/api/deleteRopa").authenticated()
-                        .anyRequest().permitAll()
+                        .requestMatchers("/api/createCamas","/api/updateCamas", "/api/deleteCamas", "/api/readCamas").authenticated()
+                        .requestMatchers("/api/createAseo","/api/updateAseo", "/api/deleteAseo", "/api/readAseo").authenticated()
+                        .requestMatchers("/api/createComida","/api/updateComida", "/api/deleteComida", "/api/readComida").authenticated()
+                        .requestMatchers("/api/createJuguetes","/api/updateJuguetes", "/api/deleteJuguetes", "/api/readJuguetes").authenticated()
+                        .requestMatchers("/api/createRopa","/api/updateRopa", "/api/deleteRopa", "/api/readRopa").authenticated()
+                        .requestMatchers("/api/createCombo","/api/updateCombo", "/api/deleteCombo", "/api/readCombo").authenticated()
+                        .anyRequest().authenticated()
                 )
                 .httpBasic(withDefaults())
                 .formLogin(withDefaults());
@@ -51,7 +52,7 @@ public class SecurityConfiguration {
 
         UserDetails user = User.builder()
                 .username("Jhon4")
-                .password(passwordEncoder.encode("Piñ8gepetto*"))
+                .password(passwordEncoder.encode("Piño8Gepetto*"))
                 .roles("USER")
                 .build();
 

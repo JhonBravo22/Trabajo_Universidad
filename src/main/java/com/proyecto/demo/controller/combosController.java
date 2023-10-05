@@ -23,33 +23,33 @@ public class combosController {
     }
 
     @GetMapping("/createCombo/{id}")
-        public String createComida(@PathVariable("id") String id){
+        public String createCombos(@PathVariable("id") String id){
         String regexforID = "[A-Z 0-9 a-z]{0,15}";
             if (id == null || !id.matches(regexforID))
             throw new IllegalArgumentException();
-         return "Combo creada satisfactoriamente "+id;
+         return "Combo creado satisfactoriamente "+id;
         }
 
     @GetMapping("/createCombo")
-    public String createComida (){
+    public String createCombos (){
         return "Combo creada satisfactoriamente";
     }
 
     @GetMapping("/readCombo/{id}")
-        public Optional<combosEntity> readComida(@PathVariable("id") String id){
+        public Optional<combosEntity> readCombos(@PathVariable("id") String id){
         String regexforID = "[A-Z 0-9 a-z]{0,15}";
             if (id == null || !id.matches(regexforID))
             throw new IllegalArgumentException();
          return comboRepo.findById(Long.valueOf(id));
         }
 
-    @GetMapping("/readComida")
-    public String readComida(){
+    @GetMapping("/readCombo")
+    public String readCombos(){
         return "Combo encontrado satisfactoriamente";
     }
 
     @GetMapping("/updateCombo/{id}")
-        public String updateComida(@PathVariable("id") String id){
+        public String updateCombos(@PathVariable("id") String id){
         String regexforID = "[A-Z 0-9 a-z]{0,15}";
             if (id == null || !id.matches(regexforID))
             throw new IllegalArgumentException();
@@ -57,12 +57,12 @@ public class combosController {
         }
 
         @GetMapping("/updateCombo")
-    public String updateComida (){
+    public String updateCombos (){
         return "Combo actualizado satisfactoriamente";
     }
 
     @GetMapping("/deleteCombo/{id}")
-        public String deleteComida(@PathVariable("id") String id){
+        public String deleteCombos(@PathVariable("id") String id){
         String regexforID = "[A-Z 0-9 a-z]{0,15}";
             if (id == null || !id.matches(regexforID))
             throw new IllegalArgumentException();
@@ -70,7 +70,7 @@ public class combosController {
         }
 
     @GetMapping("/deleteCombo")
-    public String deleteComida(){
+    public String deleteCombos(){
         return "Combo eliminado satisfactoriamente";
     }
     
